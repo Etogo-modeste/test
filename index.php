@@ -73,6 +73,7 @@
         <div>
             <form method="POST" action="process.php">
                 <div class="form-group">
+                    <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <label for="name">Name</label>
                     <input type="text" name="name" class="form-control" value="<?php echo $name ?>" placeholder="Enter your name">
                 </div>
@@ -81,7 +82,13 @@
                     <input type="text" name="location" class="form-control" value="<?php echo $location ?>" placeholder="Enter your location">
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary" name="save">Save</button>
+                    <?php
+                    if ($update == true) :
+                    ?>
+                        <button type="submit" class="btn btn-info" name="Update">Update</button>
+                    <?php else : ?>
+                        <button type="submit" class="btn btn-primary" name="save">Save</button>
+                    <?php endif; ?>
                 </div>
             </form>
         </div>
